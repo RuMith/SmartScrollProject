@@ -25,12 +25,11 @@
     <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － get user's webcam and detect faces</p>
   </div>
 
-  <div class="demo-frame">
-    <div class="demo-container">
-      <video id="video" width="320" height="240" preload autoplay loop muted></video>
-      <canvas id="canvas" width="320" height="240"></canvas>
-    </div>
+  <div class="demo">
+    <video id="video" width="600" height="600" preload autoplay loop muted></video>
+    <canvas id="canvas" width="600" height="600"></canvas>
   </div>
+
 
   <script>
     window.onload = function() {
@@ -47,6 +46,15 @@
         event.data.forEach(function(rect) {
           context.strokeStyle = '#a64ceb';
           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+          if(rect.y > 250){
+            console.log("Going down " + rect.y);
+          }
+          else if (rect.y < 200){
+            console.log("Going up " + rect.y);
+          }
+          else{
+            console.log("Hold Position ");
+          }
           context.font = '11px Helvetica';
           context.fillStyle = "#fff";
           context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
