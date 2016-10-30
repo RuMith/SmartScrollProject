@@ -1,0 +1,62 @@
+﻿<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="G:/SmartScrollProject/assets/pdfobject/pdfobject.js"></script>
+    <script src="G:/SmartScrollProject/assets/pdfobject/pdfobject.min.js"></script>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" style="background-color:yellow; text-align:center ; height:50px;"> Camera Capture </div>
+            <div class="col-sm-6" style="background-color:pink; text-align:center ; height:50px;">PDF Contents </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <object type="text/html" data="face_camera.html" width="100%" height="100%">
+                    <p>backup content</p>
+                </object>
+            </div>
+            <div class="col-sm-6" id="top">
+                <input type="file" value="select item" id="file_1" onchange="changeSrc()" />
+                <embed src="" width="100%" height="100%" id="pdfviewer" />
+                <button onclick="scrollWin()" id="btnId">Click me to scroll horizontally!</button><br><br>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    //function pageScroll() {
+    //    window.scrollBy(0, 1000); // horizontal and vertical scroll increments
+    //    scrolldelay = setTimeout('pageScroll()', 100); // scrolls every 100 milliseconds
+    //} $(window).bind('mousewheel', function (event) {
+    //    if (event.originalEvent.wheelDelta >= 0) {
+    //        $(window).scrollTo('0%', 1000);
+    //    }
+    //    else {
+    //        $(window).scrollTo('100%', 1000);
+    //    }
+    //    event.preventDefault()
+    //});
+    function scrollWin() {
+        window.scrollBy(0, 100);
+            
+    
+    };
+ 
+
+    function changeSrc() {
+        var x = document.getElementById("file_1").value;
+        document.getElementById("pdfviewer").src = x;
+    }
+</script>
+</html>
