@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        button {
+            position: fixed;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type='text/javascript'>
+        var rectVal = sessionStorage.rectVal;
+       console.log(rectVal);
+         function fillcolor() {
+
+              rectVal = document.getElementById("myText").value;
+              if (rectVal <150) {
+                    document.getElementById("div2").style.backgroundColor = 'blue'
+                }
+                else {
+                    document.getElementById("div2").style.backgroundColor = 'red'
+                }
+
+                //else if (val == -1) {
+                //    document.getElementById("div2").style.backgroundColor = 'Green'
+                //}
+
+                //else if (val == 0) {
+                //    document.getElementById("div2").style.backgroundColor = 'Black'
+                //}
+                //else if (val == 1) {
+                //    document.getElementById("div2").style.backgroundColor = 'Purple'
+                //}
+                //else if (val == 2) {
+                //    document.getElementById("div2").style.backgroundColor = 'Pink'
+                //}
+                //else if (val == 3) {
+                //    document.getElementById("div2").style.backgroundColor = 'Orange'
+                //}
+
+            }
+        
+    </script>
+
+</head>
+<body>
+    <div id="div1" style="height: 1000px; width: 100px">
+        <input type="text" id="myText" onkeyup="fillcolor()">
+        <p id="demo"></p>
+    <div style="height:100px; width:50%" id="div2">
+
+    </div>
+    </div>
+
+</body>
+</html>
