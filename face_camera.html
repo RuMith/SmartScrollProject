@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -14,25 +14,28 @@
  <script src="build/data/stats.min.js"></script>
   <style>
   video, canvas {
-    margin-left: 230px;
-    margin-top: 120px;
+    margin-left: 100px;
+    margin-top: 100px;
     position: absolute;
   }
   </style>
+  
 </head>
 <body>
+    <a href="changecolorauto.html">Go to next page </a> 
   <div class="demo-title">
     <p><a href="http://trackingjs.com" target="_parent">tracking.js</a> － get user's webcam and detect faces</p>
   </div>
 
   <div class="demo">
-    <video id="video" width="600" height="600" preload autoplay loop muted></video>
-    <canvas id="canvas" width="600" height="600"></canvas>
+      <video id="video" width="400" height="400" preload autoplay loop muted></video>
+      <canvas id="canvas" width="400" height="400"></canvas>
   </div>
 
 
   <script>
-    window.onload = function() {
+      window.onload = function () {
+          
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
@@ -43,31 +46,34 @@
       tracking.track('#video', tracker, { camera: true });
       tracker.on('track', function(event) {
         context.clearRect(0, 0, canvas.width, canvas.height);
-        event.data.forEach(function(rect) {
+        event.data.forEach(function (rect) {
           context.strokeStyle = '#a64ceb';
           context.strokeRect(rect.x, rect.y, rect.width, rect.height);
-          if(rect.y > 250){
+          if(rect.y > 170){
             console.log("Going down " + rect.y);
           }
-          else if (rect.y < 200){
+          else if (rect.y < 160){
             console.log("Going up " + rect.y);
           }
           else{
-            console.log("Hold Position ");
+              console.log("Hold Position " + rect.y);
           }
           context.font = '11px Helvetica';
           context.fillStyle = "#fff";
           context.fillText('x: ' + rect.x + 'px', rect.x + rect.width + 5, rect.y + 11);
           context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);
+          sessionStorage.rectVal = rect.y;
         });
       });
       var gui = new dat.GUI();
       gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
       gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
       gui.add(tracker, 'stepSize', 1, 5).step(0.1);
-    };
-  </script>
+      };
 
+      
+  </script>
+   
 </body>
 </html>
  
